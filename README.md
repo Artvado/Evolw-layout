@@ -1,3 +1,7 @@
+Original work by [pokerobybeto](https://github.com/pokerobybeto/Ultimate-Stream-Tool)
+
+---
+
 ![preview](https://pbs.twimg.com/media/E4AD_ECVkAAaagR?format=jpg&name=medium)
 
 # Ultimate-Stream-Tool
