@@ -487,35 +487,39 @@ function showNothing(itemEL) {
 
 
 //score change, pretty simple
-function updateScore(pNum, pScore,) {
+function updateScore(pNum, pScore) {
 
 	const score0EL = document.getElementById('win0P'+pNum);
 	const score1EL = document.getElementById('win1P'+pNum);
 	const score2EL = document.getElementById('win2P'+pNum);
 	const score3EL = document.getElementById('win3P'+pNum);
+	
 
-	if (pScore == 1) {
-		scoreChange(score1EL, score0EL, score1EL, score2EL, score3EL)
+	if (pScore == 1) {	
+			
+		scoreChange(score1EL, score0EL, score1EL, score2EL, score3EL, pNum)
+		
 	} else if (pScore == 2) {
-		scoreChange(score2EL, score0EL, score1EL, score2EL, score3EL)
+		scoreChange(score2EL, score0EL, score1EL, score2EL, score3EL, pNum)
 	} else if (pScore == 3) {
-		scoreChange(score3EL, score0EL, score1EL, score2EL, score3EL)
+		scoreChange(score3EL, score0EL, score1EL, score2EL, score3EL, pNum)
 	} else {
-		scoreChange(score0EL, score0EL, score1EL, score2EL, score3EL)
+		scoreChange(score0EL, score0EL, score1EL, score2EL, score3EL, pNum)
 	}
 }
 
 
-function scoreChange(scoreELchange, scoreEL0, scoreEL1, scoreEL2, scoreEL3, pNum) {
+function scoreChange(scoreELchange, scoreEL0, scoreEL1, scoreEL2, scoreEL3, pNum, move) {
+	
+	scoreprevEL = ('p'+pNum+'ScorePrev');
 
-	/*gsap.to(scoreELchange, {x: -pMove, opacity: 0, ease: "power1.in", duration: fadeOutTime});*/
-	scoreEL0.style.display = "none";
-	scoreEL1.style.display = "none";
-	scoreEL2.style.display = "none";
-	scoreEL3.style.display = "none";
-
-	gsap.to(scoreELchange, {display: 'block', delay: fadeInTime, ease: "power2.out", duration: fadeInTime})
-	/*gsap.to(scoreELchange, {x: 0, duration: fadeInTime});*/
+	gsap.to(scoreEL0, {delay: .3, x: 0, opacity: 0, ease: "power2.out", duration: fadeOutTime});
+	gsap.to(scoreEL1, {delay: .3, x: 0, opacity: 0, ease: "power2.out", duration: fadeOutTime});
+	gsap.to(scoreEL2, {delay: .3, x: 0, opacity: 0, ease: "power2.out", duration: fadeOutTime});
+	gsap.to(scoreEL3, {delay: .3, x: 0, opacity: 0, ease: "power2.out", duration: fadeOutTime});
+	gsap.to(scoreELchange, {delay: .5, x: 0, opacity: 1, ease: "power2.out", duration: fadeInTime});
+	
+	
 	
 }
 
@@ -726,7 +730,7 @@ function moveScoresIntro(pNum, bestOf, pWL, move) {
 	const score3EL = document.getElementById('win3P'+pNum);
 	const wlEL = document.getElementById('wlP'+pNum);
 
-	gsap.fromTo(score0EL,
+	/*gsap.fromTo(score0EL,
 		{x:-move},
 		{delay: introDelay+.2, x: 0, opacity: 1, ease: "power2.out", duration: fadeInTime});
 	gsap.fromTo(score1EL,
@@ -734,11 +738,11 @@ function moveScoresIntro(pNum, bestOf, pWL, move) {
 		{delay: introDelay+.2, x: 0, opacity: 1, ease: "power2.out", duration: fadeInTime});
 	gsap.fromTo(score2EL,
 		{x:-move},
-		{delay: introDelay+.2, x: 0, opacity: 1, ease: "power2.out", duration: fadeInTime});
+		{delay: introDelay+.2, x: 0, opacity: 1, ease: "power2.out", duration: fadeInTime});*/
 	if (bestOf == "Bo5") {
-		gsap.fromTo(score3EL,
+		/*gsap.fromTo(score3EL,
 			{x:-move},
-			{delay: introDelay+.2, x: 0, opacity: 1, ease: "power2.out", duration: fadeInTime});
+			{delay: introDelay+.2, x: 0, opacity: 1, ease: "power2.out", duration: fadeInTime});*/
 	}
 	if (pWL == "W" || pWL == "L") {
 		gsap.fromTo(wlEL,
